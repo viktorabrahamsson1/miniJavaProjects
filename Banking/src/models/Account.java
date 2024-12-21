@@ -11,7 +11,7 @@ public class Account {
     this.balance = balance;
   }
 
-  public void deposit(int amount) {
+  public void deposit(double amount) {
     if (amount > 0) {
       this.balance += amount;
     } else {
@@ -19,11 +19,11 @@ public class Account {
     }
   }
 
-  public void withdraw(int amount) {
+  public void withdraw(double amount) {
     if (this.balance >= amount && amount > 0) {
       this.balance -= amount;
     } else {
-      throw new IllegalArgumentException("You havent the funds for this withdrawl.");
+      throw new IllegalArgumentException("You can not make this withdrawl.");
     }
   }
 

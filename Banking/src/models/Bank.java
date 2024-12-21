@@ -36,26 +36,55 @@ public class Bank {
 
         case "2":
           System.out.println("Enter a account number: ");
-          int SearchedAccountNumber = scanner.nextInt();
-          getBalance(SearchedAccountNumber);
+          int searchedAccountNumber = scanner.nextInt();
+          if (accounts.containsKey(searchedAccountNumber)) {
+            getBalance(searchedAccountNumber);
+          } else {
+            System.out.println("Enter a valid account number");
+          }
           break;
 
         case "3":
           listAccounts();
           break;
-
         case "4":
+          System.out.println("Enter the account number to deposit to: ");
+          int accountNumber = scanner.nextInt();
+          System.out.println("Enter the amount of the deposit: ");
+          double amount = scanner.nextDouble();
 
+          if (accounts.containsKey(accountNumber) && amount > 0) {
+            Account account = accounts.get(accountNumber);
+            account.deposit(amount);
+          } else {
+            System.out.println("undoable deposit, check account number or balance.");
+          }
           break;
 
+        // todo funkar ej som den ska!
+        case "5":
+          System.out.println("Enter the account number to withdraw from: ");
+          int accountNumberWithdrawl = scanner.nextInt();
+          System.out.println("Enter the amount of the withdrawl: ");
+          double amountWithdrawl = scanner.nextDouble();
+
+          if (accounts.containsKey(accountNumberWithdrawl)
+              && amountWithdrawl < accounts.get(accountNumberWithdrawl).balance && amountWithdrawl > 0) {
+            Account account = accounts.get(accountNumberWithdrawl);
+            account.withdraw(amountWithdrawl);
+          } else {
+            System.out.println("undoable deposit, check account number or balance.");
+          }
+          break;
         case "6":
           scanner.close();
           break;
         default:
+          System.out.println("Please enter a valid option.");
           break;
       }
-
     }
+
   }
 
   public void createAccount(String name, double initialBalance) {
@@ -73,7 +102,7 @@ public class Bank {
   private void listAccounts() {
     for (int i = 0; i < accounts.size(); i++) {
       Account currAcc = accounts.get(i);
-      currAcc.toString();
+      System.out.println(currAcc.toString());
     }
   }
 

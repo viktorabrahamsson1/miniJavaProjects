@@ -1,7 +1,7 @@
 package models;
 
 public class Guess {
-  int computorRandom;
+  public int computorRandom;
 
   public Guess() {
     this.computorRandom = (int) Math.round(Math.random() * 99 + 1);

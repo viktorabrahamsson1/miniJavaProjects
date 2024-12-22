@@ -1,7 +1,10 @@
-import models.Bank;
+import models.Guess;
 
 public class App {
   public static void main(String[] args) throws Exception {
-    Bank bank = new Bank();
+
+    Guess guess = new Guess();
+
+    guess.showGuess();
   }
 }

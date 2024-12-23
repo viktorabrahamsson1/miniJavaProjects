@@ -8,7 +8,7 @@ public class App {
     System.out.println("Enter an intiial value to work with: ");
     int num = scanner.nextInt();
 
-    Calculator calculator = new Calculator(num);
+    Calculator calculator = new Calculator();
 
     boolean runCalc = true;
     while (runCalc) {
@@ -17,36 +17,40 @@ public class App {
       System.out.println("2: subtraction");
       System.out.println("3: division");
       System.out.println("4: multiplication");
-      System.out.println("5. exit");
+      System.out.println("5. display current number");
+      System.out.println("6. exit");
       String option = scanner.nextLine();
 
       switch (option) {
         case "1":
           sentance();
           int numToAdd = scanner.nextInt();
-          num = calculator.add(numToAdd);
+          num = calculator.add(num, numToAdd);
           break;
 
         case "2":
           sentance();
           int numToSub = scanner.nextInt();
-          scanner.nextInt();
-          num = calculator.sub(numToSub);
+          num = calculator.sub(num, numToSub);
           break;
 
         case "3":
           sentance();
           int numtoDiv = scanner.nextInt();
-          num = calculator.division(numtoDiv);
+          num = calculator.division(num, numtoDiv);
           break;
 
         case "4":
           sentance();
           int numToMultiply = scanner.nextInt();
-          num = calculator.multiplication(numToMultiply);
+          num = calculator.multiplication(num, numToMultiply);
           break;
 
         case "5":
+          displayNum(num);
+          break;
+
+        case "6":
           runCalc = false;
           scanner.close();
 
@@ -59,5 +63,9 @@ public class App {
 
   public static void sentance() {
     System.out.println("Enter a number: ");
+  }
+
+  public static void displayNum(int num) {
+    System.out.println(num);
   }
 }

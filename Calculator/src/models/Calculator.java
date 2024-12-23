@@ -1,27 +1,21 @@
 package models;
 
 public class Calculator {
-  public int initialValue;
 
-  public Calculator(int initialValue) {
-    this.initialValue = initialValue;
-
+  public int add(int num, int numToAdd) {
+    return num + numToAdd;
   }
 
-  public int add(int num) {
-    return this.initialValue += num;
+  public int sub(int num, int numToSub) {
+    return num - numToSub;
   }
 
-  public int sub(int num) {
-    return this.initialValue -= num;
+  public int division(int num, int numToDiv) {
+    return num / numToDiv;
   }
 
-  public int division(int num) {
-    return this.initialValue /= num;
-  }
-
-  public int multiplication(int num) {
-    return this.initialValue *= num;
+  public int multiplication(int num, int numToMultiply) {
+    return num * numToMultiply;
   }
 
 }
